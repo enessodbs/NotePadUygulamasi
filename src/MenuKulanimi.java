@@ -153,6 +153,7 @@ public class MenuKulanimi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //Git Deneme
+    //Git2
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         JFileChooser fc = new JFileChooser();
         int i = fc.showOpenDialog(this);
