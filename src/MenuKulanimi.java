@@ -52,8 +52,15 @@ public class MenuKulanimi extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("NotePad Uygulamasý");
 
         yazi_alani.setColumns(20);
         yazi_alani.setRows(5);
@@ -127,7 +134,57 @@ public class MenuKulanimi extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem6);
 
+        jMenuItem7.setText("Verdana");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem7);
+
+        jMenuItem8.setText("Algerian");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem8);
+
+        jMenuItem11.setText("Kalýn");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem11);
+
+        jMenuItem12.setText("Italik");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem12);
+
         jMenu4.add(jMenu2);
+
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_QUOTEDBL, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem9.setText("Büyük Harf");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem9);
+
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_QUOTEDBL, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem10.setText("Küçük Harf");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem10);
 
         jMenuBar1.add(jMenu4);
 
@@ -139,7 +196,7 @@ public class MenuKulanimi extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,8 +209,7 @@ public class MenuKulanimi extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Git Deneme
-    //Git2
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         JFileChooser fc = new JFileChooser();
         int i = fc.showOpenDialog(this);
@@ -175,20 +231,19 @@ public class MenuKulanimi extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         JFileChooser fc = new JFileChooser();
         int cevap = fc.showSaveDialog(this);
-        
+
         if (cevap == JFileChooser.APPROVE_OPTION) {
             String dosya_yolu = fc.getSelectedFile().getPath();
-            try(FileWriter writer = new FileWriter(dosya_yolu)){
+            try (FileWriter writer = new FileWriter(dosya_yolu)) {
                 writer.write(yazi_alani.getText());
-            }
-          catch (IOException ex) {
+            } catch (IOException ex) {
                 Logger.getLogger(MenuKulanimi.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        
+
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -200,18 +255,77 @@ public class MenuKulanimi extends javax.swing.JFrame {
         yazi_alani.setForeground(color);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    String yaziTipi;
+
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        
-        Font font = new Font("Arial", Font.PLAIN,20);
+
+        Font font = new Font("Arial", Font.PLAIN, 20);
         yazi_alani.setFont(font);
-        
+        yaziTipi = "Arial";
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        
-        Font font = new Font("Times New Roman", Font.PLAIN,20);
+
+        Font font = new Font("Times New Roman", Font.PLAIN, 20);
         yazi_alani.setFont(font);
+        yaziTipi = "Times New Roman";
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        Font font = new Font("Verdana", Font.PLAIN, 20);
+        yazi_alani.setFont(font);
+        yaziTipi = "Verdana";
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        Font font = new Font("Algerian", Font.PLAIN, 20);
+        yazi_alani.setFont(font);
+        yaziTipi = "Algerian";
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        String yazi = yazi_alani.getSelectedText();
+        yazi_alani.setText(yazi.toUpperCase());
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        String yazi = yazi_alani.getSelectedText();
+        yazi_alani.setText(yazi.toLowerCase());
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        var yazi = "";
+        if (yaziTipi.equals("Arial")) {
+            yazi = "Arial";
+        }else if(yaziTipi.equals("Times New Roman")){
+            yazi = "Times New Roman";
+        }else if(yaziTipi.equals("Verdana")){
+            yazi = "Verdana";
+        }else if(yaziTipi.equals("Algerian")){
+            yazi = "Algerian";
+        }
+        
+        Font font = new Font(yazi, Font.BOLD, 20);
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+          var yazi = "";
+        if (yaziTipi.equals("Arial")) {
+            yazi = "Arial";
+        }else if(yaziTipi.equals("Times New Roman")){
+            yazi = "Times New Roman";
+        }else if(yaziTipi.equals("Verdana")){
+            yazi = "Verdana";
+        }else if(yaziTipi.equals("Algerian")){
+            yazi = "Algerian";
+        }
+        
+        Font font = new Font(yazi, Font.ITALIC, 20);
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,11 +369,17 @@ public class MenuKulanimi extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea yazi_alani;
     // End of variables declaration//GEN-END:variables
